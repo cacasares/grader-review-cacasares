@@ -10,8 +10,8 @@ then
 else 
     error
 fi
-cp../ListExamplesTest.java
 
+cp TestListExamples.java grade
 
 
 echo 'Finished cloning'
