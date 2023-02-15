@@ -7,11 +7,19 @@ git clone $1 student-submission
 if [[ -e student-submission/ListExamples.java ]]
 then 
     echo "File found"
+    javac ListExamples.java
+
 else 
     error
 fi
 
-cp TestListExamples.java grade
+javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java
+
+java -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar org.junit.runner.JUnitCore TestListExamples > compile.txt
+
+Failure = 'grep "FAILURES" compile.txt'
+
+if[[ $?== 0]]
 
 
 echo 'Finished cloning'
