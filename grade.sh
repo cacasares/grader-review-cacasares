@@ -4,13 +4,13 @@ rm -rf student-submission
 git clone $1 student-submission
 
 
-if [[ -e student-submission/ListExamples.java ]]
+if [[ -f student-submission/ListExamples.java ]]
 then 
     echo "File found"
     javac ListExamples.java
 
 else 
-    error
+    echo "error"
 fi
 cp student-submission/ListExamples.java ./
 javac -cp .:lib/hamcrest-core-1.3.jar:lib/junit-4.13.2.jar *.java
